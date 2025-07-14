@@ -1,17 +1,16 @@
-// app/page.tsx veya pages/index.tsx
+'use client'
 
 import dynamic from 'next/dynamic'
 
-// ⛔️ SSR'yi devre dışı bırakıyoruz!
 const WebcamFaceTracker = dynamic(() => import('./components/FaceTracker'), {
   ssr: false,
   loading: () => <p>Yükleniyor...</p>,
 })
 
-export default function HomePage() {
+export default function WebcamPageClient() {
   return (
-    <main>
-      <h1>Canlı Yüz Analizi</h1>
+    <main className="p-8">
+      <h1 className="text-2xl font-semibold mb-4">Canlı Yüz Takibi</h1>
       <WebcamFaceTracker />
     </main>
   )
